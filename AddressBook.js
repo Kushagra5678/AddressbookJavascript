@@ -1,3 +1,5 @@
+
+  
 class Contact {
 
     constructor(...params) {
@@ -72,9 +74,16 @@ class Contact {
         ", city : "+ this.city + ", State : "+ this.state +", Zip : "+ this.zip+ ", Phone No : "+ this.phoneNo + ", Email : "+ this.email;
     }
 }  
+
+let addressBookArr = new Array();
 try{
-let contact = new Contact("Kush", "Agg", "Street", "Saharanpur", "Uttar Pradesh", "123456", "91 9898909870", "kush@gmail.com");
-console.log(contact.toString());
+addressBookArr.push(new Contact("Kush", "Agg", "Steet", "Saharanpur", "Uttar Pradesh", "123456", "91 9898989847", "kush@gmail.com"));
 }catch(e){
     console.error(e);
 }
+try{
+    addressBookArr.push(new Contact("Kav", "Agg", "Gully", "Saharanpur", "Uttar Pradesh", "234567", "91 9876589892", "agg@gmail.com"));
+}catch(e){
+    console.error(e);
+}
+console.log(addressBookArr);
