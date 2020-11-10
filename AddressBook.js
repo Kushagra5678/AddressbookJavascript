@@ -1,4 +1,3 @@
-
   
 class Contact {
 
@@ -76,14 +75,52 @@ class Contact {
 }  
 
 let addressBookArr = new Array();
+
+function contactExists(fName, lName){
+    return addressBookArr.some(u => u.firstName == fName && u.lastName == lName);
+}
+
+function editContact(fName, lName, property, value){
+    if(contactExists(fName, lName)){
+    switch(property){
+        case "address":
+            addressBookArr.find((contact) => contact.firstName == fName).address = value;
+            break;
+        case "city":
+            addressBookArr.find((contact) => contact.firstName == fName).city = value;
+            break;
+        case "state":
+            addressBookArr.find((contact) => contact.firstName == fName).state = value;
+            break;
+        case "zip":
+            addressBookArr.find((contact) => contact.firstName == fName).zip = value;
+            break;
+        case "phone":
+            addressBookArr.find((contact) => contact.firstName == fName).phoneNo = value;
+            break;
+        case "email":
+            addressBookArr.find((contact) => contact.firstName == fName).email = value;
+            break;
+        default:
+            console.log("Enter valid property");
+    }
+  }else{
+      console.log("Contact Does Not Exist");
+  }
+}
 try{
-addressBookArr.push(new Contact("Kush", "Agg", "Steet", "Saharanpur", "Uttar Pradesh", "123456", "91 9898989847", "kush@gmail.com"));
+addressBookArr.push(new Contact("Kush", "Agg", "Street", "Saharanpur", "Uttar Pradesh", "123456", "91 9865467898", "kush@gmail.com"));
 }catch(e){
     console.error(e);
 }
+
 try{
-    addressBookArr.push(new Contact("Kav", "Agg", "Gully", "Saharanpur", "Uttar Pradesh", "234567", "91 9876589892", "agg@gmail.com"));
+    console.log("Hi");
+    addressBookArr.push(new Contact("Kavi", "Agg", "Gully", "Saharanpur", "Uttar Pradesh", "234567", "91 9765459897", "kush@gmail.com"));
 }catch(e){
     console.error(e);
 }
+console.log(addressBookArr);
+
+editContact("Kavi", "Agg", "address", "Guly");
 console.log(addressBookArr);
